@@ -13,3 +13,12 @@ func IsUniqueConstraintError(err error) string {
 	}
 	return ""
 }
+
+func IsUniqueCustomerError(err error) string {
+	if err != nil {
+		if err.Error() == "UNIQUE constraint failed: customers.phone" {
+			return "手机号已存在"
+		}
+	}
+	return ""
+}
